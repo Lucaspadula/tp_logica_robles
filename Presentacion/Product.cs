@@ -1,10 +1,15 @@
 namespace tp_logica_robles
 {
-    public partial class Form1 : Form
+    public partial class Product : Form
     {
-        public Form1()
+        public Product()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
