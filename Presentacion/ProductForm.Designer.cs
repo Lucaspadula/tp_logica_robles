@@ -42,17 +42,18 @@
             versionToolStripMenuItem = new ToolStripMenuItem();
             labelProducto = new Label();
             btnNuevo = new Button();
-            textBox1 = new TextBox();
+            txtCodigoProd = new TextBox();
             btnConsultar = new Button();
-            Categoria = new DataGridViewTextBoxColumn();
-            Origen = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
+            dataGridViewProductos = new DataGridView();
             Codigo = new DataGridViewTextBoxColumn();
-            dataGridView1 = new DataGridView();
+            Nombre = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Origen = new DataGridViewTextBoxColumn();
+            Categoria = new DataGridViewTextBoxColumn();
             grpFiltro = new GroupBox();
             labelbuscar = new Label();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProductos).BeginInit();
             grpFiltro.SuspendLayout();
             SuspendLayout();
             // 
@@ -156,7 +157,7 @@
             // 
             btnNuevo.Font = new Font("Verdana", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnNuevo.Location = new Point(13, 406);
-            btnNuevo.Margin = new Padding(4, 4, 4, 4);
+            btnNuevo.Margin = new Padding(4);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(113, 32);
             btnNuevo.TabIndex = 5;
@@ -164,13 +165,13 @@
             btnNuevo.UseVisualStyleBackColor = true;
             btnNuevo.Click += button2_Click;
             // 
-            // textBox1
+            // txtCodigoProd
             // 
-            textBox1.Location = new Point(130, 34);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(351, 23);
-            textBox1.TabIndex = 6;
-            textBox1.TextChanged += textBox1_TextChanged;
+            txtCodigoProd.Location = new Point(130, 34);
+            txtCodigoProd.Name = "txtCodigoProd";
+            txtCodigoProd.Size = new Size(351, 23);
+            txtCodigoProd.TabIndex = 6;
+            txtCodigoProd.TextChanged += textBox1_TextChanged;
             // 
             // btnConsultar
             // 
@@ -182,18 +183,27 @@
             btnConsultar.TabIndex = 8;
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = true;
+            btnConsultar.Click += btnConsultar_Click;
             // 
-            // Categoria
+            // dataGridViewProductos
             // 
-            Categoria.HeaderText = "categoria";
-            Categoria.Name = "Categoria";
-            Categoria.ReadOnly = true;
+            dataGridViewProductos.AllowUserToDeleteRows = false;
+            dataGridViewProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewProductos.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nombre, Precio, Origen, Categoria });
+            dataGridViewProductos.Location = new Point(19, 68);
+            dataGridViewProductos.Margin = new Padding(4);
+            dataGridViewProductos.Name = "dataGridViewProductos";
+            dataGridViewProductos.ReadOnly = true;
+            dataGridViewProductos.RowTemplate.Height = 25;
+            dataGridViewProductos.Size = new Size(754, 251);
+            dataGridViewProductos.TabIndex = 2;
+            dataGridViewProductos.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // Origen
+            // Codigo
             // 
-            Origen.HeaderText = "origen";
-            Origen.Name = "Origen";
-            Origen.ReadOnly = true;
+            Codigo.HeaderText = "codigo";
+            Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
             // 
             // Nombre
             // 
@@ -202,32 +212,30 @@
             Nombre.Name = "Nombre";
             Nombre.ReadOnly = true;
             // 
-            // Codigo
+            // Precio
             // 
-            Codigo.HeaderText = "codigo";
-            Codigo.Name = "Codigo";
-            Codigo.ReadOnly = true;
+            Precio.HeaderText = "precio";
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
             // 
-            // dataGridView1
+            // Origen
             // 
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nombre, Origen, Categoria });
-            dataGridView1.Location = new Point(19, 68);
-            dataGridView1.Margin = new Padding(4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(754, 251);
-            dataGridView1.TabIndex = 2;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            Origen.HeaderText = "origen";
+            Origen.Name = "Origen";
+            Origen.ReadOnly = true;
+            // 
+            // Categoria
+            // 
+            Categoria.HeaderText = "categoria";
+            Categoria.Name = "Categoria";
+            Categoria.ReadOnly = true;
             // 
             // grpFiltro
             // 
             grpFiltro.Controls.Add(labelbuscar);
             grpFiltro.Controls.Add(btnConsultar);
-            grpFiltro.Controls.Add(textBox1);
-            grpFiltro.Controls.Add(dataGridView1);
+            grpFiltro.Controls.Add(txtCodigoProd);
+            grpFiltro.Controls.Add(dataGridViewProductos);
             grpFiltro.Location = new Point(13, 66);
             grpFiltro.Name = "grpFiltro";
             grpFiltro.Size = new Size(785, 333);
@@ -246,7 +254,7 @@
             labelbuscar.TabIndex = 9;
             labelbuscar.Text = "Codigo/Producto";
             // 
-            // Product
+            // ProductForm
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -256,13 +264,13 @@
             Controls.Add(labelProducto);
             Controls.Add(menuStrip1);
             Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "Product";
+            Margin = new Padding(4);
+            Name = "ProductForm";
             Text = "Productos";
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProductos).EndInit();
             grpFiltro.ResumeLayout(false);
             grpFiltro.PerformLayout();
             ResumeLayout(false);
@@ -287,12 +295,14 @@
         private Button btnNuevo;
         private TextBox textBox1;
         private Button btnConsultar;
-        private DataGridViewTextBoxColumn Categoria;
-        private DataGridViewTextBoxColumn Origen;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewProductos;
         private GroupBox grpFiltro;
         private Label labelbuscar;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn Origen;
+        private DataGridViewTextBoxColumn Categoria;
+        private TextBox txtCodigoProd;
     }
 }

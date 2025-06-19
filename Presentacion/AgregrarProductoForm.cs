@@ -12,6 +12,16 @@ namespace tp_logica_robles.Presentacion
 {
     public partial class AgregrarProductoForm : Form
     {
+        public enum Modo
+        {
+            Nuevo,
+            Editar,
+            Eliminar
+        }
+        public AgregrarProductoForm(int codigoArticulo, Modo modo)
+        {
+            InitializeComponent();
+        }
         public AgregrarProductoForm()
         {
             InitializeComponent();

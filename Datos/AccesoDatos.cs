@@ -5,12 +5,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
-namespace tp_logica_robles.Datos  
+namespace tp_logica_robles.Datos
 {
     public class AccesoDatos
     {
-        private string CadenaConexion = Properties.Resources.CadenaConexion;
+        private string CadenaConexion = $"Data Source=LUCAS-PADULA\\MSSQLSERVER1;Initial Catalog=TP_ROBLES;User ID=sa;Password=autotrader;Persist Security Info=True";
+        //Properties.Resources.CadenaConexion;
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;
@@ -69,6 +71,24 @@ namespace tp_logica_robles.Datos
             this.Desconectar();
             return filasAfectadas;
         }
+        public DataTable ConsultarBD(string consultaSQL, List<Parametro> lista)
+        {
+            DataTable tabla = new DataTable();
+            this.Conectar();
+            comando.CommandText = consultaSQL;
+            foreach (Parametro p in lista)
+            {
+                comando.Parameters.AddWithValue(p.Nombre, p.Valor);
+                Debug.WriteLine($"Parámetro: {p.Nombre} = {p.Valor} (Tipo: {p.Valor?.GetType().Name ?? "null"})");
+            }
+            Debug.WriteLine("Consulta FINAL aproximada: " + comando.CommandText);
+            tabla.Load(comando.ExecuteReader());
+
+            this.Desconectar();
+            return tabla;
+        }
+
+
 
     }
 }
