@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace tp_logica_robles.Negocio
 {
-    internal class Categorias
+    public class Categorias
     {
         int id;
         string nombre;
