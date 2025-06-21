@@ -80,12 +80,14 @@
             categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
             categoriaToolStripMenuItem.Size = new Size(137, 22);
             categoriaToolStripMenuItem.Text = "Categoria";
+            categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             salirToolStripMenuItem.Size = new Size(137, 22);
             salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // soporteToolStripMenuItem
             // 
@@ -98,8 +100,9 @@
             // origenToolStripMenuItem
             // 
             origenToolStripMenuItem.Name = "origenToolStripMenuItem";
-            origenToolStripMenuItem.Size = new Size(116, 22);
+            origenToolStripMenuItem.Size = new Size(180, 22);
             origenToolStripMenuItem.Text = "Origen";
+            origenToolStripMenuItem.Click += origenToolStripMenuItem_Click;
             // 
             // consultasToolStripMenuItem
             // 

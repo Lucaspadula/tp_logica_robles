@@ -12,10 +12,6 @@ namespace tp_logica_robles.Datos
     public class AccesoDatos
     {
         private string CadenaConexion = $"Data Source=LUCAS-PADULA\\MSSQLSERVER1;Initial Catalog=TP_ROBLES;User ID=sa;Password=autotrader;Persist Security Info=True";
-<<<<<<< Updated upstream
-=======
-        //$"Data Source=FACUNDOBALLS;Initial Catalog=TP_ROBLES;Integrated Security=True";
->>>>>>> Stashed changes
         //Properties.Resources.CadenaConexion;
         private SqlConnection conexion;
         private SqlCommand comando;
