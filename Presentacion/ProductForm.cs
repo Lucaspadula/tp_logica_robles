@@ -1,18 +1,17 @@
 using tp_logica_robles.Datos;
 using tp_logica_robles.Presentacion;
 using tp_logica_robles.Servicios;
-using static tp_logica_robles.Presentacion.AgregrarProductoForm;
+using static tp_logica_robles.Presentacion.DetalleProductoForm;
 
 namespace tp_logica_robles
 {
     public partial class ProductForm : Form
     {
         ServicioFormProductos servicioFormProductos = new ServicioFormProductos();
-        AccesoDatos accesoDatos;
         public ProductForm()
         {
             InitializeComponent();
-            accesoDatos = new AccesoDatos();
+
         }
 
         public DataGridView DataGridViewProductos
@@ -41,7 +40,7 @@ namespace tp_logica_robles
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AgregrarProductoForm agregrarProductoForm = new AgregrarProductoForm();
+            DetalleProductoForm agregrarProductoForm = new DetalleProductoForm();
             agregrarProductoForm.ShowDialog();
         }
 
@@ -51,7 +50,7 @@ namespace tp_logica_robles
             string nomProducto = (string)dataGridViewProductos.Rows[e.RowIndex].Cells["nombre"].Value;
             if (e.ColumnIndex == dataGridViewProductos.Columns[5].Index)
             {
-                AgregrarProductoForm agregrarProductoForm = new AgregrarProductoForm(codigoProducto, Modo.Editar);
+                DetalleProductoForm agregrarProductoForm = new DetalleProductoForm(codigoProducto, Modo.Editar);
                 agregrarProductoForm.ShowDialog();
             }
             if (e.ColumnIndex == dataGridViewProductos.Columns[6].Index)

@@ -10,19 +10,20 @@ using System.Windows.Forms;
 
 namespace tp_logica_robles.Presentacion
 {
-    public partial class AgregrarProductoForm : Form
+    public partial class DetalleProductoForm : Form
     {
         public enum Modo
         {
             Nuevo,
-            Editar,
-            Eliminar
+            Editar
         }
-        public AgregrarProductoForm(int codigoArticulo, Modo modo)
+
+        public DetalleProductoForm(int codigoArticulo, Modo modo)
         {
             InitializeComponent();
         }
-        public AgregrarProductoForm()
+
+        public DetalleProductoForm()
         {
             InitializeComponent();
         }

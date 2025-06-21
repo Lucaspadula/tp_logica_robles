@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using tp_logica_robles.Datos;
-using static tp_logica_robles.Presentacion.AgregrarProductoForm;
+using static tp_logica_robles.Presentacion.DetalleProductoForm;
 using tp_logica_robles.Presentacion;
 
 namespace tp_logica_robles.Servicios
@@ -72,9 +72,9 @@ namespace tp_logica_robles.Servicios
 
         public int EliminarProducto(int codigoProducto)
         {
-            string consultaSQL = $"delete from productos where id = {codigoProducto}";
+            string sql = $"delete from productos where id = {codigoProducto}";
 
-            return acceso.ActualizarBD(consultaSQL);
+            return acceso.ActualizarBD(sql);
 
         }
 
