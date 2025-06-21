@@ -47,39 +47,34 @@ namespace tp_logica_robles
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int codigoArticulo = Convert.ToInt32(dataGridViewProductos.Rows[e.RowIndex].Cells["codigo"].Value);
-            string nomArticulo = (string)dataGridViewProductos.Rows[e.RowIndex].Cells["nombre"].Value;
+            int codigoProducto = Convert.ToInt32(dataGridViewProductos.Rows[e.RowIndex].Cells["codigo"].Value);
+            string nomProducto = (string)dataGridViewProductos.Rows[e.RowIndex].Cells["nombre"].Value;
             if (e.ColumnIndex == dataGridViewProductos.Columns[5].Index)
             {
-                AgregrarProductoForm agregrarProductoForm = new AgregrarProductoForm(codigoArticulo, Modo.Editar);
+                AgregrarProductoForm agregrarProductoForm = new AgregrarProductoForm(codigoProducto, Modo.Editar);
                 agregrarProductoForm.ShowDialog();
             }
             if (e.ColumnIndex == dataGridViewProductos.Columns[6].Index)
             {
-                DialogResult result = MessageBox.Show($"Desea eliminar el producto {nomArticulo}", "CONFIRMACION", MessageBoxButtons.OKCancel);
+                DialogResult result = MessageBox.Show($"Desea eliminar el producto {nomProducto}", "CONFIRMACION", MessageBoxButtons.OKCancel);
                 //falta la logica para borrar 
                 if (result == DialogResult.OK)
                 {
-                    string consultaSQL = $"delete from productos where id = {codigoArticulo}";
-                    EliminarProducto(consultaSQL);
+                    int filasAfectadas = servicioFormProductos.EliminarProducto(codigoProducto);
+                    if (filasAfectadas == 0)
+                    {
+                        MessageBox.Show($"No se pudo eliminar el producto: {nomProducto}.");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"El producto {nomProducto} se elimino con exito.");
+                    }
+
                 }
             }
 
         }
 
-        private void EliminarProducto(string consultaSQL)
-        {
-            int filasAfectadas = accesoDatos.ActualizarBD(consultaSQL);
-            if (filasAfectadas == 0)
-            {
-                MessageBox.Show("No se pudo eliminar el producto.");
-            }
-            else
-            {
-                MessageBox.Show($"El producto se elimino con exito.");
-            }
-
-        }
 
         private void labelbuscar_Click(object sender, EventArgs e)
         {

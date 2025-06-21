@@ -70,5 +70,13 @@ namespace tp_logica_robles.Servicios
             }
         }
 
+        public int EliminarProducto(int codigoProducto)
+        {
+            string consultaSQL = $"delete from productos where id = {codigoProducto}";
+
+            return acceso.ActualizarBD(consultaSQL);
+
+        }
+
     }
 }
