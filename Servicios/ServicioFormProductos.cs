@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using tp_logica_robles.Datos;
-using static tp_logica_robles.Presentacion.AgregrarProductoForm;
+using static tp_logica_robles.Presentacion.DetalleProductoForm;
 using tp_logica_robles.Presentacion;
 
 namespace tp_logica_robles.Servicios
@@ -68,6 +68,14 @@ namespace tp_logica_robles.Servicios
             {
                 form.DataGridViewProductos.Rows.Add(fila[0], fila[1], fila[2], fila[3], fila[4]);
             }
+        }
+
+        public int EliminarProducto(int codigoProducto)
+        {
+            string sql = $"delete from productos where id = {codigoProducto}";
+
+            return acceso.ActualizarBD(sql);
+
         }
 
     }

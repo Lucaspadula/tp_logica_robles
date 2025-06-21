@@ -11,8 +11,11 @@ namespace tp_logica_robles.Datos
 {
     public class AccesoDatos
     {
-        private string CadenaConexion = @"Data Source=JERE-PC\SQLEXPRESS;Initial Catalog=TP_ROBLES;Integrated Security=True;";
-        //Properties.Resources.CadenaConexion;
+        private string CadenaConexion = Properties.Resources.CadenaConexion;
+        // $"Data Source=LUCAS-PADULA\\MSSQLSERVER1;Initial Catalog=TP_ROBLES;User ID=sa;Password=autotrader;Persist Security Info=True";
+        //$"Data Source=FACUNDOBALLS;Initial Catalog=TP_ROBLES;Integrated Security=True";
+        //@"Data Source=JERE-PC\SQLEXPRESS;Initial Catalog=TP_ROBLES;Integrated Security=True;";
+
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;

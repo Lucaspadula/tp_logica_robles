@@ -1,18 +1,17 @@
 using tp_logica_robles.Datos;
 using tp_logica_robles.Presentacion;
 using tp_logica_robles.Servicios;
-using static tp_logica_robles.Presentacion.AgregrarProductoForm;
+using static tp_logica_robles.Presentacion.DetalleProductoForm;
 
 namespace tp_logica_robles
 {
     public partial class ProductForm : Form
     {
         ServicioFormProductos servicioFormProductos = new ServicioFormProductos();
-        AccesoDatos accesoDatos;
         public ProductForm()
         {
             InitializeComponent();
-            accesoDatos = new AccesoDatos();
+
         }
 
         public DataGridView DataGridViewProductos
@@ -41,45 +40,40 @@ namespace tp_logica_robles
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AgregrarProductoForm agregrarProductoForm = new AgregrarProductoForm();
+            DetalleProductoForm agregrarProductoForm = new DetalleProductoForm();
             agregrarProductoForm.ShowDialog();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int codigoArticulo = Convert.ToInt32(dataGridViewProductos.Rows[e.RowIndex].Cells["codigo"].Value);
-            string nomArticulo = (string)dataGridViewProductos.Rows[e.RowIndex].Cells["nombre"].Value;
+            int codigoProducto = Convert.ToInt32(dataGridViewProductos.Rows[e.RowIndex].Cells["codigo"].Value);
+            string nomProducto = (string)dataGridViewProductos.Rows[e.RowIndex].Cells["nombre"].Value;
             if (e.ColumnIndex == dataGridViewProductos.Columns[5].Index)
             {
-                AgregrarProductoForm agregrarProductoForm = new AgregrarProductoForm(codigoArticulo, Modo.Editar);
+                DetalleProductoForm agregrarProductoForm = new DetalleProductoForm(codigoProducto, Modo.Editar);
                 agregrarProductoForm.ShowDialog();
             }
             if (e.ColumnIndex == dataGridViewProductos.Columns[6].Index)
             {
-                DialogResult result = MessageBox.Show($"Desea eliminar el producto {nomArticulo}", "CONFIRMACION", MessageBoxButtons.OKCancel);
+                DialogResult result = MessageBox.Show($"Desea eliminar el producto {nomProducto}", "CONFIRMACION", MessageBoxButtons.OKCancel);
                 //falta la logica para borrar 
                 if (result == DialogResult.OK)
                 {
-                    string consultaSQL = $"delete from productos where id = {codigoArticulo}";
-                    EliminarProducto(consultaSQL);
+                    int filasAfectadas = servicioFormProductos.EliminarProducto(codigoProducto);
+                    if (filasAfectadas == 0)
+                    {
+                        MessageBox.Show($"No se pudo eliminar el producto: {nomProducto}.");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"El producto {nomProducto} se elimino con exito.");
+                    }
+
                 }
             }
 
         }
 
-        private void EliminarProducto(string consultaSQL)
-        {
-            int filasAfectadas = accesoDatos.ActualizarBD(consultaSQL);
-            if (filasAfectadas == 0)
-            {
-                MessageBox.Show("No se pudo eliminar el producto.");
-            }
-            else
-            {
-                MessageBox.Show($"El producto se elimino con exito.");
-            }
-
-        }
 
         private void labelbuscar_Click(object sender, EventArgs e)
         {

@@ -29,10 +29,22 @@ namespace tp_logica_robles.Servicios
             return acceso.ConsultarTabla("ORIGEN_PRODUCTOS");
         }
 
-    //public int guardarNuevo()
-    //    {
-    //        Productos producto = new Productos();
-    //        string query = 
-    //    }
+        public bool guardarNuevo(Productos p)
+        {
+            
+            string query = @"INSERT INTO PRODUCTOS (NOMBRE, PRECIO_UNITARIO, DESCRIPCION, ID_CATEGORIA,ID_ORIGEN)
+                                VALUES(@NOMBRE, @PRECIO_UNITARIO, @DESCRIPCION, @ID_CATEGORIA, @ID_ORIGEN)";
+
+            
+            List<Parametro> list = new List<Parametro>();
+            list.Add(new Parametro("@NOMBRE", p.Nombre));
+            list.Add(new Parametro("@PRECIO_UNITARIO", p.Precio));
+            list.Add(new Parametro("@DESCRIPCION", p.Descripcion));
+            list.Add(new Parametro("@ID_CATEGORIA", p.Categoria.Id));
+            list.Add(new Parametro("@ID_ORIGEN", p.Origen.Id));
+
+            return acceso.ActualizarBD(query, list) == 1;
+
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tp_logica_robles.Negocio
 {
-    internal class Productos
+    public class Productos
     {
         int id;
         string nombre, descripcion;

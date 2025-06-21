@@ -1,6 +1,6 @@
 ﻿namespace tp_logica_robles.Presentacion
 {
-    partial class AgregrarProductoForm
+    partial class DetalleProductoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -132,7 +132,7 @@
             // cboCategoria
             // 
             cboCategoria.FormattingEnabled = true;
-            cboCategoria.Location = new Point(263, 251);
+            cboCategoria.Location = new Point(263, 248);
             cboCategoria.Name = "cboCategoria";
             cboCategoria.Size = new Size(148, 23);
             cboCategoria.TabIndex = 12;
@@ -145,7 +145,7 @@
             cboOrigen.Size = new Size(148, 23);
             cboOrigen.TabIndex = 13;
             // 
-            // AgregrarProductoForm
+            // DetalleProductoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -162,7 +162,7 @@
             Controls.Add(label2);
             Controls.Add(txt_Nom_Prod);
             Controls.Add(label1);
-            Name = "AgregrarProductoForm";
+            Name = "DetalleProductoForm";
             Text = "AgregrarProducto";
             Load += AgregrarProducto_Load;
             ResumeLayout(false);
