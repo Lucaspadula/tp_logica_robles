@@ -1,6 +1,6 @@
 ﻿namespace tp_logica_robles.Presentacion
 {
-    partial class AgregrarProductoForm
+    partial class DetalleProductoForm
     {
         /// <summary>
         /// Required designer variable.
