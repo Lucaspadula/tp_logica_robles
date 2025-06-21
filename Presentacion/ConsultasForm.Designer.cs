@@ -31,10 +31,14 @@
             groupBox1 = new GroupBox();
             labelDescripcion = new Label();
             label1 = new Label();
+            dataGridView1 = new DataGridView();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(dataGridView1);
             groupBox1.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 108);
             groupBox1.Name = "groupBox1";
@@ -58,12 +62,21 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(359, 217);
+            label1.Location = new Point(100, 62);
             label1.Name = "label1";
-            label1.Size = new Size(82, 16);
+            label1.Size = new Size(270, 16);
             label1.TabIndex = 2;
-            label1.Text = "Descripción";
+            label1.Text = "Descripcion de la consulta seleccionada";
             label1.Click += label1_Click_1;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(15, 34);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(745, 257);
+            dataGridView1.TabIndex = 0;
             // 
             // ConsultasForm
             // 
@@ -75,6 +88,8 @@
             Controls.Add(groupBox1);
             Name = "ConsultasForm";
             Text = "ConsultasForm";
+            groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -84,5 +99,6 @@
         private GroupBox groupBox1;
         private Label labelDescripcion;
         private Label label1;
+        private DataGridView dataGridView1;
     }
 }
