@@ -80,6 +80,7 @@ namespace tp_logica_robles.Presentacion
         private void ConsultasForm_Load(object sender, EventArgs e)
         {
             FormsFijos.ConfigurarFormFijo(this);
+            GridUtilidad.ConfigurarGrid(dgbConsulta);
 
         }
 
