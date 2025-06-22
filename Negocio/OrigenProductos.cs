@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace tp_logica_robles.Negocio
 {
 
-    internal class OrigenProductos
+    public class OrigenProductos
     {
 
         public int Id { get; set; }
