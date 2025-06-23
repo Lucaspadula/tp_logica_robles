@@ -1,17 +1,23 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Diagnostics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace tp_logica_robles.Datos
 {
     public class AccesoDatos
     {
-        private string CadenaConexion = Properties.Resources.CadenaConexion;
+        private string CadenaConexion = $"Data Source=LUCAS;Initial Catalog=TP_ROBLES;User ID=sa;Password=Autotrader;Persist Security Info=True";
+            //$"Data Source = LUCAS; Initial Catalog = TP_ROBLES; Persist Security Info=True;User ID = sa;Password=autotrader;";
+            //Properties.Resources.CadenaConexion;
+        //$"Data Source = LUCAS; Initial Catalog = TP_ROBLES; Persist Security Info=True;User ID = sa;";
         // $"Data Source=LUCAS-PADULA\\MSSQLSERVER1;Initial Catalog=TP_ROBLES;User ID=sa;Password=autotrader;Persist Security Info=True";
         //$"Data Source=FACUNDOBALLS;Initial Catalog=TP_ROBLES;Integrated Security=True";
         //@"Data Source=JERE-PC\SQLEXPRESS;Initial Catalog=TP_ROBLES;Integrated Security=True;";
