@@ -35,7 +35,13 @@
             soporteToolStripMenuItem = new ToolStripMenuItem();
             origenToolStripMenuItem = new ToolStripMenuItem();
             consultasToolStripMenuItem = new ToolStripMenuItem();
-            ejVerProductosToolStripMenuItem = new ToolStripMenuItem();
+            RutasConductoresToolStripMenuItem = new ToolStripMenuItem();
+            verVentasToolStripMenuItem = new ToolStripMenuItem();
+            detallesDeProductosToolStripMenuItem = new ToolStripMenuItem();
+            mayorCapacidadDeGalponesToolStripMenuItem = new ToolStripMenuItem();
+            devolucionDeProductosToolStripMenuItem = new ToolStripMenuItem();
+            facturasDeClientesToolStripMenuItem = new ToolStripMenuItem();
+            detalleDeFacturasToolStripMenuItem = new ToolStripMenuItem();
             acercaDeToolStripMenuItem = new ToolStripMenuItem();
             informacionToolStripMenuItem = new ToolStripMenuItem();
             datosDeContactoToolStripMenuItem = new ToolStripMenuItem();
@@ -100,23 +106,67 @@
             // origenToolStripMenuItem
             // 
             origenToolStripMenuItem.Name = "origenToolStripMenuItem";
-            origenToolStripMenuItem.Size = new Size(180, 22);
+            origenToolStripMenuItem.Size = new Size(116, 22);
             origenToolStripMenuItem.Text = "Origen";
             origenToolStripMenuItem.Click += origenToolStripMenuItem_Click;
             // 
             // consultasToolStripMenuItem
             // 
-            consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ejVerProductosToolStripMenuItem });
+            consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { RutasConductoresToolStripMenuItem, verVentasToolStripMenuItem, detallesDeProductosToolStripMenuItem, mayorCapacidadDeGalponesToolStripMenuItem, devolucionDeProductosToolStripMenuItem, facturasDeClientesToolStripMenuItem, detalleDeFacturasToolStripMenuItem });
             consultasToolStripMenuItem.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             consultasToolStripMenuItem.Size = new Size(83, 20);
             consultasToolStripMenuItem.Text = "Consultas";
+            consultasToolStripMenuItem.Click += consultasToolStripMenuItem_Click;
             // 
-            // ejVerProductosToolStripMenuItem
+            // RutasConductoresToolStripMenuItem
             // 
-            ejVerProductosToolStripMenuItem.Name = "ejVerProductosToolStripMenuItem";
-            ejVerProductosToolStripMenuItem.Size = new Size(189, 22);
-            ejVerProductosToolStripMenuItem.Text = "ej: ver productos";
+            RutasConductoresToolStripMenuItem.Name = "RutasConductoresToolStripMenuItem";
+            RutasConductoresToolStripMenuItem.Size = new Size(272, 22);
+            RutasConductoresToolStripMenuItem.Text = "Rutas Conductores";
+            RutasConductoresToolStripMenuItem.Click += RutasConductoresToolStripMenuItem_Click;
+            // 
+            // verVentasToolStripMenuItem
+            // 
+            verVentasToolStripMenuItem.Name = "verVentasToolStripMenuItem";
+            verVentasToolStripMenuItem.Size = new Size(272, 22);
+            verVentasToolStripMenuItem.Text = "Canales de Atencion";
+            verVentasToolStripMenuItem.Click += canalesComunicacionToolStripMenuItem_Click;
+            // 
+            // detallesDeProductosToolStripMenuItem
+            // 
+            detallesDeProductosToolStripMenuItem.Name = "detallesDeProductosToolStripMenuItem";
+            detallesDeProductosToolStripMenuItem.Size = new Size(272, 22);
+            detallesDeProductosToolStripMenuItem.Text = "Detalles de Productos";
+            detallesDeProductosToolStripMenuItem.Click += detallesDeProductosToolStripMenuItem_Click;
+            // 
+            // mayorCapacidadDeGalponesToolStripMenuItem
+            // 
+            mayorCapacidadDeGalponesToolStripMenuItem.Name = "mayorCapacidadDeGalponesToolStripMenuItem";
+            mayorCapacidadDeGalponesToolStripMenuItem.Size = new Size(272, 22);
+            mayorCapacidadDeGalponesToolStripMenuItem.Text = "Mayor Capacidad de Galpones";
+            mayorCapacidadDeGalponesToolStripMenuItem.Click += mayorCapacidadDeGalponesToolStripMenuItem_Click;
+            // 
+            // devolucionDeProductosToolStripMenuItem
+            // 
+            devolucionDeProductosToolStripMenuItem.Name = "devolucionDeProductosToolStripMenuItem";
+            devolucionDeProductosToolStripMenuItem.Size = new Size(272, 22);
+            devolucionDeProductosToolStripMenuItem.Text = "Devolucion de Productos";
+            devolucionDeProductosToolStripMenuItem.Click += devolucionDeProductosToolStripMenuItem_Click;
+            // 
+            // facturasDeClientesToolStripMenuItem
+            // 
+            facturasDeClientesToolStripMenuItem.Name = "facturasDeClientesToolStripMenuItem";
+            facturasDeClientesToolStripMenuItem.Size = new Size(272, 22);
+            facturasDeClientesToolStripMenuItem.Text = "Facturas de Clientes";
+            facturasDeClientesToolStripMenuItem.Click += facturasDeClientesToolStripMenuItem_Click;
+            // 
+            // detalleDeFacturasToolStripMenuItem
+            // 
+            detalleDeFacturasToolStripMenuItem.Name = "detalleDeFacturasToolStripMenuItem";
+            detalleDeFacturasToolStripMenuItem.Size = new Size(272, 22);
+            detalleDeFacturasToolStripMenuItem.Text = "Detalle de Facturas";
+            detalleDeFacturasToolStripMenuItem.Click += detalleDeFacturasToolStripMenuItem_Click;
             // 
             // acercaDeToolStripMenuItem
             // 
@@ -289,7 +339,7 @@
         private ToolStripMenuItem soporteToolStripMenuItem;
         private ToolStripMenuItem origenToolStripMenuItem;
         private ToolStripMenuItem consultasToolStripMenuItem;
-        private ToolStripMenuItem ejVerProductosToolStripMenuItem;
+        private ToolStripMenuItem RutasConductoresToolStripMenuItem;
         private ToolStripMenuItem acercaDeToolStripMenuItem;
         private ToolStripMenuItem informacionToolStripMenuItem;
         private ToolStripMenuItem datosDeContactoToolStripMenuItem;
@@ -307,5 +357,11 @@
         private DataGridViewTextBoxColumn Origen;
         private DataGridViewTextBoxColumn Categoria;
         private TextBox txtCodigoProd;
+        private ToolStripMenuItem verVentasToolStripMenuItem;
+        private ToolStripMenuItem detallesDeProductosToolStripMenuItem;
+        private ToolStripMenuItem mayorCapacidadDeGalponesToolStripMenuItem;
+        private ToolStripMenuItem devolucionDeProductosToolStripMenuItem;
+        private ToolStripMenuItem facturasDeClientesToolStripMenuItem;
+        private ToolStripMenuItem detalleDeFacturasToolStripMenuItem;
     }
 }

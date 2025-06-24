@@ -1,6 +1,9 @@
+using System.Diagnostics;
 using tp_logica_robles.Datos;
 using tp_logica_robles.Presentacion;
 using tp_logica_robles.Servicios;
+using tp_logica_robles.Utilidades;
+using static tp_logica_robles.Presentacion.ConsultasForm;
 using static tp_logica_robles.Presentacion.DetalleProductoForm;
 
 namespace tp_logica_robles
@@ -26,7 +29,15 @@ namespace tp_logica_robles
 
         private void Form1_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             servicioFormProductos.cargarBtnGrilla(this);
+=======
+            FormsFijos.ConfigurarFormFijo(this);
+            servicioFormProductos.cargarBtnGrilla(this);
+            GridUtilidad.ConfigurarGrid(dataGridViewProductos);
+
+
+>>>>>>> f9dc6720d41b22a846195ff259a078951f8dea12
         }
 
         private void labelProducto_Click(object sender, EventArgs e)
@@ -42,10 +53,9 @@ namespace tp_logica_robles
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int codigoProducto = Convert.ToInt32(dataGridViewProductos.Rows[e.RowIndex].Cells["codigo"].Value);
-            string nomProducto = (string)dataGridViewProductos.Rows[e.RowIndex].Cells["nombre"].Value;
-            if (e.ColumnIndex == dataGridViewProductos.Columns[5].Index)
+            try
             {
+<<<<<<< HEAD
                 DetalleProductoForm editarProductoForm = new DetalleProductoForm(codigoProducto, Modo.Editar);
                 editarProductoForm.ShowDialog();
             }
@@ -54,19 +64,38 @@ namespace tp_logica_robles
                 DialogResult result = MessageBox.Show($"Desea eliminar el producto {nomProducto}", "CONFIRMACION", MessageBoxButtons.OKCancel);
                 //falta la logica para borrar 
                 if (result == DialogResult.OK)
+=======
+                int codigoProducto = Convert.ToInt32(dataGridViewProductos.Rows[e.RowIndex].Cells["codigo"].Value);
+                string nomProducto = (string)dataGridViewProductos.Rows[e.RowIndex].Cells["nombre"].Value;
+                if (e.ColumnIndex == dataGridViewProductos.Columns[5].Index)
+>>>>>>> f9dc6720d41b22a846195ff259a078951f8dea12
                 {
-                    int filasAfectadas = servicioFormProductos.EliminarProducto(codigoProducto);
-                    if (filasAfectadas == 0)
+                    DetalleProductoForm agregrarProductoForm = new DetalleProductoForm(codigoProducto, Modo.Editar);
+                    agregrarProductoForm.ShowDialog();
+                }
+                if (e.ColumnIndex == dataGridViewProductos.Columns[6].Index)
+                {
+                    DialogResult result = MessageBox.Show($"Desea eliminar el producto {nomProducto}", "CONFIRMACION", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
                     {
-                        MessageBox.Show($"No se pudo eliminar el producto: {nomProducto}.");
-                    }
-                    else
-                    {
-                        MessageBox.Show($"El producto {nomProducto} se elimino con exito.");
-                    }
+                        int filasAfectadas = servicioFormProductos.EliminarProducto(codigoProducto);
+                        if (filasAfectadas == 0)
+                        {
+                            MessageBox.Show($"No se pudo eliminar el producto: {nomProducto}.");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"El producto {nomProducto} se elimino con exito.");
+                        }
 
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error al hacer click en algun campo {ex}");
+            }
+
 
         }
 
@@ -113,6 +142,53 @@ namespace tp_logica_robles
         {
             OrigenProductosForm origenProductosForm = new OrigenProductosForm();
             origenProductosForm.ShowDialog();
+        }
+
+        private void RutasConductoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioConsulta(TipoConsulta.HrConductores);
+        }
+
+        private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void AbrirFormularioConsulta(TipoConsulta tipoConsulta)
+        {
+            var frm = new ConsultasForm(tipoConsulta);
+            frm.ShowDialog();
+        }
+
+        private void canalesComunicacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioConsulta(TipoConsulta.CanalesComunicacion);
+
+
+        }
+
+        private void detallesDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioConsulta(TipoConsulta.DetalleProducto);
+        }
+
+        private void mayorCapacidadDeGalponesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioConsulta(TipoConsulta.GalponesMayorCapacidad);
+        }
+
+        private void devolucionDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioConsulta(TipoConsulta.DevolucionProducto);
+        }
+
+        private void facturasDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioConsulta(TipoConsulta.FacturasDeClientes);
+        }
+
+        private void detalleDeFacturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioConsulta(TipoConsulta.DetalleDeFacturas);
         }
     }
 }
