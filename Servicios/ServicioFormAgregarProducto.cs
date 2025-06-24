@@ -11,20 +11,20 @@ namespace tp_logica_robles.Servicios
 {
     internal class ServicioFormAgregarProducto
     {
-    AccesoDatos acceso = new AccesoDatos();
-    string sql;
+        AccesoDatos acceso = new AccesoDatos();
+        string sql;
     
-    public void Validacion()
+        public void Validacion()
         {
 
         }
-    public DataTable cargarComboCategoria()
+        public DataTable cargarComboCategoria()
         {
             return acceso.ConsultarTabla("categorias");
            
 
         }
-    public DataTable cargarComboOrigen()
+        public DataTable cargarComboOrigen()
         {
             return acceso.ConsultarTabla("ORIGEN_PRODUCTOS");
         }
@@ -45,6 +45,33 @@ namespace tp_logica_robles.Servicios
 
             return acceso.ActualizarBD(query, list) == 1;
 
+        }
+
+        public bool editarProducto( Productos p, int codigoProducto)
+        {
+            string query = "UPDATE PRODUCTOS" +
+            " SET NOMBRE = @nombre, PRECIO_UNITARIO = @precio, DESCRIPCION = @descripcion, ID_CATEGORIA = @categoria, ID_ORIGEN = @origen" +
+            " WHERE ID =  @codigoProducto";
+
+            List<Parametro> list = new List<Parametro>();
+            list.Add(new Parametro("@nombre", p.Nombre));
+            list.Add(new Parametro("@precio", p.Precio));
+            list.Add(new Parametro("@descripcion", p.Descripcion));
+            list.Add(new Parametro("@categoria", p.Categoria.Id));
+            list.Add(new Parametro("@origen", p.Origen.Id));
+            list.Add(new Parametro("@codigoProducto", codigoProducto));
+
+            return acceso.ActualizarBD(query, list) == 1;
+        }
+
+        public DataTable verProducto(int codigoProducto)
+        {
+            string query = "SELECT * FROM PRODUCTOS WHERE ID = @CODIGOPRODUCTO";
+
+            List<Parametro> list = new List<Parametro>();
+            list.Add(new Parametro("@CODIGOPRODUCTO", codigoProducto));
+
+           return acceso.ConsultarBD(query, list);
         }
     }
 }

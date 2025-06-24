@@ -26,12 +26,8 @@ namespace tp_logica_robles
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             servicioFormProductos.cargarBtnGrilla(this);
-
         }
-
-
 
         private void labelProducto_Click(object sender, EventArgs e)
         {
@@ -40,7 +36,7 @@ namespace tp_logica_robles
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DetalleProductoForm agregrarProductoForm = new DetalleProductoForm();
+            DetalleProductoForm agregrarProductoForm = new DetalleProductoForm(0, Modo.Nuevo);
             agregrarProductoForm.ShowDialog();
         }
 
@@ -50,8 +46,8 @@ namespace tp_logica_robles
             string nomProducto = (string)dataGridViewProductos.Rows[e.RowIndex].Cells["nombre"].Value;
             if (e.ColumnIndex == dataGridViewProductos.Columns[5].Index)
             {
-                DetalleProductoForm agregrarProductoForm = new DetalleProductoForm(codigoProducto, Modo.Editar);
-                agregrarProductoForm.ShowDialog();
+                DetalleProductoForm editarProductoForm = new DetalleProductoForm(codigoProducto, Modo.Editar);
+                editarProductoForm.ShowDialog();
             }
             if (e.ColumnIndex == dataGridViewProductos.Columns[6].Index)
             {
@@ -73,7 +69,6 @@ namespace tp_logica_robles
             }
 
         }
-
 
         private void labelbuscar_Click(object sender, EventArgs e)
         {

@@ -163,8 +163,8 @@
             Controls.Add(txt_Nom_Prod);
             Controls.Add(label1);
             Name = "DetalleProductoForm";
-            Text = "AgregrarProducto";
-            Load += AgregrarProducto_Load;
+            Text = "AgregarProducto";
+            Load += AgregarProducto_Load;
             ResumeLayout(false);
             PerformLayout();
         }

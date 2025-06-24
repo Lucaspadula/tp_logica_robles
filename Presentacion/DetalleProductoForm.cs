@@ -16,42 +16,46 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace tp_logica_robles.Presentacion
 {
+    public enum Modo
+    {
+        Nuevo,
+        Editar
+    }
     public partial class DetalleProductoForm : Form
     {
         ServicioFormAgregarProducto servicioFormAgregarProducto = new ServicioFormAgregarProducto();
-        
-        public enum Modo
-        {
-            Nuevo,
-            Editar
-        }
+        Modo accion;
+        int codigoProducto;
+        Productos producto = new Productos();
 
-        public DetalleProductoForm(int codigoArticulo, Modo modo)
+        public DetalleProductoForm(int codigoArticulo, Modo accion)
         {
             InitializeComponent();
-
+            this.codigoProducto = codigoArticulo;
+            this.accion = accion;
         }
 
         public DetalleProductoForm()
         {
             InitializeComponent();
-            DataTable dtCategoria = new DataTable();
-
-            dtCategoria = servicioFormAgregarProducto.cargarComboCategoria();
-            cboCategoria.DataSource = dtCategoria;
-            cboCategoria.DisplayMember = dtCategoria.Columns[1].ColumnName;
-            cboCategoria.ValueMember = "ID";
-
-            DataTable dtOrigen = new DataTable();
-            dtOrigen = servicioFormAgregarProducto.cargarComboOrigen();
-            cboOrigen.DataSource = dtOrigen;
-            cboOrigen.DisplayMember = "NOMBRE";
-            cboOrigen.ValueMember = "ID";
         }
 
-        private void AgregrarProducto_Load(object sender, EventArgs e)
-        {
+        private void cargarCombo(DataTable dt, System.Windows.Forms.ComboBox cbo) {
+            cbo.DataSource = dt;
+            cbo.DisplayMember = dt.Columns[1].ColumnName;
+            cbo.ValueMember = dt.Columns[0].ColumnName;
+        }
 
+        private void AgregarProducto_Load(object sender, EventArgs e)
+        {
+            DataTable dtCategoria = servicioFormAgregarProducto.cargarComboCategoria();
+            DataTable dtOrigen = servicioFormAgregarProducto.cargarComboOrigen();
+            cargarCombo(dtCategoria, cboCategoria);
+            cargarCombo(dtOrigen, cboOrigen);
+            if(accion == Modo.Editar)
+            {
+                cargarProducto(codigoProducto);
+            }
         }
 
         private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -79,6 +83,53 @@ namespace tp_logica_robles.Presentacion
             Close();
         }
 
+        private void cargarProducto(int codigoProducto)
+        {
+            DataTable dataTable = servicioFormAgregarProducto.verProducto(codigoProducto);
+            if (dataTable.Rows.Count > 0)
+            {
+                DataRow row = dataTable.Rows[0];
+                producto.Id = Convert.ToInt32(row[0]);  
+                producto.Nombre = row[1] != DBNull.Value ? Convert.ToString(row[1]) : string.Empty;
+                producto.Precio = Convert.ToInt32(row[2]);
+                producto.Descripcion = row[3] != DBNull.Value ? Convert.ToString(row[3]) : string.Empty;
+                producto.Categoria = new Categorias { Id = Convert.ToInt32(row[4]) };
+                producto.Origen = new OrigenProductos { Id = Convert.ToInt32(row[5]) };
+
+
+                txt_Nom_Prod.Text = producto.Nombre;
+                txt_precio.Text = producto.Precio.ToString();
+                txt_descrip.Text = producto.Descripcion;
+                cboCategoria.SelectedValue = producto.Categoria.Id;
+                cboOrigen.SelectedValue = producto.Origen.Id;
+            }
+        }
+
+        private void nuevoProducto()
+        {
+            if (servicioFormAgregarProducto.guardarNuevo(producto))
+            {
+                MessageBox.Show("se cargo el nuevo Producto");
+                txt_Nom_Prod.Text = "";
+                txt_precio.Text = "";
+                txt_descrip.Text = "";
+                cboCategoria.SelectedValue = -1;
+                cboOrigen.SelectedValue = -1;
+            } else
+            {
+                MessageBox.Show("No se pudo realizar la carga del nuevo producto");
+            }
+        }
+
+        private void editarProducto(Productos producto, int codigoProducto)
+        {
+            if (servicioFormAgregarProducto.editarProducto(producto, codigoProducto))
+            {
+                MessageBox.Show("Se modificó el producto");
+                Close();
+            }
+        }
+
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             Productos producto = new Productos();
@@ -94,23 +145,15 @@ namespace tp_logica_robles.Presentacion
                 OrigenProductos origen = new OrigenProductos();
                 origen.Id = Convert.ToInt32(cboOrigen.SelectedValue);
                 producto.Origen = origen;
-                if (servicioFormAgregarProducto.guardarNuevo(producto))
+                if (accion == Modo.Nuevo)
                 {
-                    MessageBox.Show("se cargo el nuevo Producto");
-                    txt_Nom_Prod.Text = "";
-                    txt_precio.Text = "";
-                    txt_descrip.Text = "";
-                    cboCategoria.SelectedValue = -1;
-                    cboOrigen.SelectedValue = -1;
+                    nuevoProducto();
                 }
-                else
+                else if (accion == Modo.Editar)
                 {
-                    MessageBox.Show("No se pudo realizar la carga del nuevo producto");
+                    editarProducto(producto, codigoProducto);
                 }
             }
-
-
-
         }
 
         private bool Validar()
