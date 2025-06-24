@@ -72,7 +72,11 @@ namespace tp_logica_robles.Servicios
 
         public int EliminarProducto(int codigoProducto)
         {
-            string sql = $"delete from productos where id = {codigoProducto}";
+
+            string sql = $"delete from DETALLE_FACTURAS where ID_PRODUCTO = {codigoProducto}" +
+                $" delete from INSUMOS_PRODUCTOS where ID_PRODUCTO = {codigoProducto}" +
+                $" delete from STOCKS where ID_PRODUCTO = {codigoProducto}" +
+                $" delete from productos where id = {codigoProducto}";
 
             return acceso.ActualizarBD(sql);
 
