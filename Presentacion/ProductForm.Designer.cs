@@ -65,11 +65,12 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.ImageScalingSize = new Size(32, 32);
             menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, soporteToolStripMenuItem, consultasToolStripMenuItem, acercaDeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
-            menuStrip1.Size = new Size(809, 24);
+            menuStrip1.Size = new Size(1568, 42);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -78,20 +79,20 @@
             archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriaToolStripMenuItem, salirToolStripMenuItem });
             archivoToolStripMenuItem.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            archivoToolStripMenuItem.Size = new Size(68, 20);
+            archivoToolStripMenuItem.Size = new Size(131, 38);
             archivoToolStripMenuItem.Text = "Archivo";
             // 
             // categoriaToolStripMenuItem
             // 
             categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(137, 22);
+            categoriaToolStripMenuItem.Size = new Size(272, 44);
             categoriaToolStripMenuItem.Text = "Categoria";
             categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(137, 22);
+            salirToolStripMenuItem.Size = new Size(272, 44);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
@@ -100,13 +101,13 @@
             soporteToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { origenToolStripMenuItem });
             soporteToolStripMenuItem.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
-            soporteToolStripMenuItem.Size = new Size(71, 20);
+            soporteToolStripMenuItem.Size = new Size(136, 38);
             soporteToolStripMenuItem.Text = "Soporte";
             // 
             // origenToolStripMenuItem
             // 
             origenToolStripMenuItem.Name = "origenToolStripMenuItem";
-            origenToolStripMenuItem.Size = new Size(116, 22);
+            origenToolStripMenuItem.Size = new Size(232, 44);
             origenToolStripMenuItem.Text = "Origen";
             origenToolStripMenuItem.Click += origenToolStripMenuItem_Click;
             // 
@@ -115,56 +116,56 @@
             consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { RutasConductoresToolStripMenuItem, verVentasToolStripMenuItem, detallesDeProductosToolStripMenuItem, mayorCapacidadDeGalponesToolStripMenuItem, devolucionDeProductosToolStripMenuItem, facturasDeClientesToolStripMenuItem, detalleDeFacturasToolStripMenuItem });
             consultasToolStripMenuItem.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            consultasToolStripMenuItem.Size = new Size(83, 20);
+            consultasToolStripMenuItem.Size = new Size(161, 38);
             consultasToolStripMenuItem.Text = "Consultas";
             consultasToolStripMenuItem.Click += consultasToolStripMenuItem_Click;
             // 
             // RutasConductoresToolStripMenuItem
             // 
             RutasConductoresToolStripMenuItem.Name = "RutasConductoresToolStripMenuItem";
-            RutasConductoresToolStripMenuItem.Size = new Size(272, 22);
+            RutasConductoresToolStripMenuItem.Size = new Size(540, 44);
             RutasConductoresToolStripMenuItem.Text = "Rutas Conductores";
             RutasConductoresToolStripMenuItem.Click += RutasConductoresToolStripMenuItem_Click;
             // 
             // verVentasToolStripMenuItem
             // 
             verVentasToolStripMenuItem.Name = "verVentasToolStripMenuItem";
-            verVentasToolStripMenuItem.Size = new Size(272, 22);
+            verVentasToolStripMenuItem.Size = new Size(540, 44);
             verVentasToolStripMenuItem.Text = "Canales de Atencion";
             verVentasToolStripMenuItem.Click += canalesComunicacionToolStripMenuItem_Click;
             // 
             // detallesDeProductosToolStripMenuItem
             // 
             detallesDeProductosToolStripMenuItem.Name = "detallesDeProductosToolStripMenuItem";
-            detallesDeProductosToolStripMenuItem.Size = new Size(272, 22);
+            detallesDeProductosToolStripMenuItem.Size = new Size(540, 44);
             detallesDeProductosToolStripMenuItem.Text = "Detalles de Productos";
             detallesDeProductosToolStripMenuItem.Click += detallesDeProductosToolStripMenuItem_Click;
             // 
             // mayorCapacidadDeGalponesToolStripMenuItem
             // 
             mayorCapacidadDeGalponesToolStripMenuItem.Name = "mayorCapacidadDeGalponesToolStripMenuItem";
-            mayorCapacidadDeGalponesToolStripMenuItem.Size = new Size(272, 22);
+            mayorCapacidadDeGalponesToolStripMenuItem.Size = new Size(540, 44);
             mayorCapacidadDeGalponesToolStripMenuItem.Text = "Mayor Capacidad de Galpones";
             mayorCapacidadDeGalponesToolStripMenuItem.Click += mayorCapacidadDeGalponesToolStripMenuItem_Click;
             // 
             // devolucionDeProductosToolStripMenuItem
             // 
             devolucionDeProductosToolStripMenuItem.Name = "devolucionDeProductosToolStripMenuItem";
-            devolucionDeProductosToolStripMenuItem.Size = new Size(272, 22);
+            devolucionDeProductosToolStripMenuItem.Size = new Size(540, 44);
             devolucionDeProductosToolStripMenuItem.Text = "Devolucion de Productos";
             devolucionDeProductosToolStripMenuItem.Click += devolucionDeProductosToolStripMenuItem_Click;
             // 
             // facturasDeClientesToolStripMenuItem
             // 
             facturasDeClientesToolStripMenuItem.Name = "facturasDeClientesToolStripMenuItem";
-            facturasDeClientesToolStripMenuItem.Size = new Size(272, 22);
+            facturasDeClientesToolStripMenuItem.Size = new Size(540, 44);
             facturasDeClientesToolStripMenuItem.Text = "Facturas de Clientes";
             facturasDeClientesToolStripMenuItem.Click += facturasDeClientesToolStripMenuItem_Click;
             // 
             // detalleDeFacturasToolStripMenuItem
             // 
             detalleDeFacturasToolStripMenuItem.Name = "detalleDeFacturasToolStripMenuItem";
-            detalleDeFacturasToolStripMenuItem.Size = new Size(272, 22);
+            detalleDeFacturasToolStripMenuItem.Size = new Size(540, 44);
             detalleDeFacturasToolStripMenuItem.Text = "Detalle de Facturas";
             detalleDeFacturasToolStripMenuItem.Click += detalleDeFacturasToolStripMenuItem_Click;
             // 
@@ -173,26 +174,29 @@
             acercaDeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { informacionToolStripMenuItem, datosDeContactoToolStripMenuItem, versionToolStripMenuItem });
             acercaDeToolStripMenuItem.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            acercaDeToolStripMenuItem.Size = new Size(86, 20);
+            acercaDeToolStripMenuItem.Size = new Size(162, 38);
             acercaDeToolStripMenuItem.Text = "Acerca de";
             // 
             // informacionToolStripMenuItem
             // 
             informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
-            informacionToolStripMenuItem.Size = new Size(199, 22);
+            informacionToolStripMenuItem.Size = new Size(388, 44);
             informacionToolStripMenuItem.Text = "Informacion";
+            informacionToolStripMenuItem.Click += informacionToolStripMenuItem_Click;
             // 
             // datosDeContactoToolStripMenuItem
             // 
             datosDeContactoToolStripMenuItem.Name = "datosDeContactoToolStripMenuItem";
-            datosDeContactoToolStripMenuItem.Size = new Size(199, 22);
+            datosDeContactoToolStripMenuItem.Size = new Size(388, 44);
             datosDeContactoToolStripMenuItem.Text = "Datos de Contacto";
+            datosDeContactoToolStripMenuItem.Click += datosDeContactoToolStripMenuItem_Click;
             // 
             // versionToolStripMenuItem
             // 
             versionToolStripMenuItem.Name = "versionToolStripMenuItem";
-            versionToolStripMenuItem.Size = new Size(199, 22);
+            versionToolStripMenuItem.Size = new Size(388, 44);
             versionToolStripMenuItem.Text = "Version";
+            versionToolStripMenuItem.Click += versionToolStripMenuItem_Click;
             // 
             // labelProducto
             // 
@@ -201,7 +205,7 @@
             labelProducto.Location = new Point(13, 38);
             labelProducto.Margin = new Padding(4, 0, 4, 0);
             labelProducto.Name = "labelProducto";
-            labelProducto.Size = new Size(129, 25);
+            labelProducto.Size = new Size(260, 51);
             labelProducto.TabIndex = 3;
             labelProducto.Text = "Productos";
             labelProducto.Click += labelProducto_Click;
@@ -222,7 +226,7 @@
             // 
             txtCodigoProd.Location = new Point(130, 34);
             txtCodigoProd.Name = "txtCodigoProd";
-            txtCodigoProd.Size = new Size(351, 23);
+            txtCodigoProd.Size = new Size(351, 39);
             txtCodigoProd.TabIndex = 6;
             txtCodigoProd.TextChanged += textBox1_TextChanged;
             // 
@@ -247,6 +251,7 @@
             dataGridViewProductos.Margin = new Padding(4);
             dataGridViewProductos.Name = "dataGridViewProductos";
             dataGridViewProductos.ReadOnly = true;
+            dataGridViewProductos.RowHeadersWidth = 82;
             dataGridViewProductos.RowTemplate.Height = 25;
             dataGridViewProductos.Size = new Size(754, 251);
             dataGridViewProductos.TabIndex = 2;
@@ -255,33 +260,42 @@
             // Codigo
             // 
             Codigo.HeaderText = "codigo";
+            Codigo.MinimumWidth = 10;
             Codigo.Name = "Codigo";
             Codigo.ReadOnly = true;
+            Codigo.Width = 200;
             // 
             // Nombre
             // 
             Nombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Nombre.HeaderText = "nombre";
+            Nombre.MinimumWidth = 10;
             Nombre.Name = "Nombre";
             Nombre.ReadOnly = true;
             // 
             // Precio
             // 
             Precio.HeaderText = "precio";
+            Precio.MinimumWidth = 10;
             Precio.Name = "Precio";
             Precio.ReadOnly = true;
+            Precio.Width = 200;
             // 
             // Origen
             // 
             Origen.HeaderText = "origen";
+            Origen.MinimumWidth = 10;
             Origen.Name = "Origen";
             Origen.ReadOnly = true;
+            Origen.Width = 200;
             // 
             // Categoria
             // 
             Categoria.HeaderText = "categoria";
+            Categoria.MinimumWidth = 10;
             Categoria.Name = "Categoria";
             Categoria.ReadOnly = true;
+            Categoria.Width = 200;
             // 
             // grpFiltro
             // 
@@ -303,15 +317,15 @@
             labelbuscar.Location = new Point(7, 37);
             labelbuscar.Margin = new Padding(4, 0, 4, 0);
             labelbuscar.Name = "labelbuscar";
-            labelbuscar.Size = new Size(116, 16);
+            labelbuscar.Size = new Size(230, 32);
             labelbuscar.TabIndex = 9;
             labelbuscar.Text = "Codigo/Producto";
             // 
             // ProductForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 16F);
+            AutoScaleDimensions = new SizeF(16F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(809, 455);
+            ClientSize = new Size(1568, 652);
             Controls.Add(grpFiltro);
             Controls.Add(btnNuevo);
             Controls.Add(labelProducto);

@@ -3,6 +3,7 @@ using tp_logica_robles.Datos;
 using tp_logica_robles.Presentacion;
 using tp_logica_robles.Servicios;
 using tp_logica_robles.Utilidades;
+using static tp_logica_robles.Presentacion.AcercadeForm;
 using static tp_logica_robles.Presentacion.ConsultasForm;
 using static tp_logica_robles.Presentacion.DetalleProductoForm;
 
@@ -29,16 +30,14 @@ namespace tp_logica_robles
 
         private void Form1_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            servicioFormProductos.cargarBtnGrilla(this);
-=======
             FormsFijos.ConfigurarFormFijo(this);
             servicioFormProductos.cargarBtnGrilla(this);
             GridUtilidad.ConfigurarGrid(dataGridViewProductos);
 
 
->>>>>>> f9dc6720d41b22a846195ff259a078951f8dea12
         }
+
+
 
         private void labelProducto_Click(object sender, EventArgs e)
         {
@@ -47,7 +46,7 @@ namespace tp_logica_robles
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DetalleProductoForm agregrarProductoForm = new DetalleProductoForm(0, Modo.Nuevo);
+            DetalleProductoForm agregrarProductoForm = new DetalleProductoForm();
             agregrarProductoForm.ShowDialog();
         }
 
@@ -55,20 +54,9 @@ namespace tp_logica_robles
         {
             try
             {
-<<<<<<< HEAD
-                DetalleProductoForm editarProductoForm = new DetalleProductoForm(codigoProducto, Modo.Editar);
-                editarProductoForm.ShowDialog();
-            }
-            if (e.ColumnIndex == dataGridViewProductos.Columns[6].Index)
-            {
-                DialogResult result = MessageBox.Show($"Desea eliminar el producto {nomProducto}", "CONFIRMACION", MessageBoxButtons.OKCancel);
-                //falta la logica para borrar 
-                if (result == DialogResult.OK)
-=======
                 int codigoProducto = Convert.ToInt32(dataGridViewProductos.Rows[e.RowIndex].Cells["codigo"].Value);
                 string nomProducto = (string)dataGridViewProductos.Rows[e.RowIndex].Cells["nombre"].Value;
                 if (e.ColumnIndex == dataGridViewProductos.Columns[5].Index)
->>>>>>> f9dc6720d41b22a846195ff259a078951f8dea12
                 {
                     DetalleProductoForm agregrarProductoForm = new DetalleProductoForm(codigoProducto, Modo.Editar);
                     agregrarProductoForm.ShowDialog();
@@ -98,6 +86,7 @@ namespace tp_logica_robles
 
 
         }
+
 
         private void labelbuscar_Click(object sender, EventArgs e)
         {
@@ -189,6 +178,28 @@ namespace tp_logica_robles
         private void detalleDeFacturasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormularioConsulta(TipoConsulta.DetalleDeFacturas);
+        }
+
+        private void informacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            AbrirFormularioAcercade(TipoAcercade.Informacion);
+        }
+
+        private void AbrirFormularioAcercade(TipoAcercade acercaDe)
+        {
+            var frm = new AcercadeForm(acercaDe);
+            frm.ShowDialog();
+        }
+
+        private void datosDeContactoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAcercade(TipoAcercade.DatosContacto);
+        }
+
+        private void versionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAcercade(TipoAcercade.Version);
         }
     }
 }

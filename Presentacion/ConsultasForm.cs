@@ -22,8 +22,12 @@ namespace tp_logica_robles.Presentacion
             GalponesMayorCapacidad,
             DevolucionProducto,
             FacturasDeClientes,
-            DetalleDeFacturas
+            DetalleDeFacturas,
+
         }
+
+
+
         public DataGridView DGBProductos
         {
             get { return dgbConsulta; }
@@ -84,5 +88,9 @@ namespace tp_logica_robles.Presentacion
 
         }
 
+        private void lblTituloConsulta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
