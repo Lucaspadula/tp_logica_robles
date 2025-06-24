@@ -51,13 +51,13 @@
             txtCodigoProd = new TextBox();
             btnConsultar = new Button();
             dataGridViewProductos = new DataGridView();
+            grpFiltro = new GroupBox();
+            labelbuscar = new Label();
             Codigo = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Precio = new DataGridViewTextBoxColumn();
             Origen = new DataGridViewTextBoxColumn();
             Categoria = new DataGridViewTextBoxColumn();
-            grpFiltro = new GroupBox();
-            labelbuscar = new Label();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProductos).BeginInit();
             grpFiltro.SuspendLayout();
@@ -70,7 +70,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
-            menuStrip1.Size = new Size(1568, 42);
+            menuStrip1.Size = new Size(946, 24);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -79,20 +79,20 @@
             archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriaToolStripMenuItem, salirToolStripMenuItem });
             archivoToolStripMenuItem.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            archivoToolStripMenuItem.Size = new Size(131, 38);
+            archivoToolStripMenuItem.Size = new Size(68, 20);
             archivoToolStripMenuItem.Text = "Archivo";
             // 
             // categoriaToolStripMenuItem
             // 
             categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
-            categoriaToolStripMenuItem.Size = new Size(272, 44);
+            categoriaToolStripMenuItem.Size = new Size(137, 22);
             categoriaToolStripMenuItem.Text = "Categoria";
             categoriaToolStripMenuItem.Click += categoriaToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(272, 44);
+            salirToolStripMenuItem.Size = new Size(137, 22);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
@@ -101,13 +101,13 @@
             soporteToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { origenToolStripMenuItem });
             soporteToolStripMenuItem.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
-            soporteToolStripMenuItem.Size = new Size(136, 38);
+            soporteToolStripMenuItem.Size = new Size(71, 20);
             soporteToolStripMenuItem.Text = "Soporte";
             // 
             // origenToolStripMenuItem
             // 
             origenToolStripMenuItem.Name = "origenToolStripMenuItem";
-            origenToolStripMenuItem.Size = new Size(232, 44);
+            origenToolStripMenuItem.Size = new Size(116, 22);
             origenToolStripMenuItem.Text = "Origen";
             origenToolStripMenuItem.Click += origenToolStripMenuItem_Click;
             // 
@@ -116,56 +116,56 @@
             consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { RutasConductoresToolStripMenuItem, verVentasToolStripMenuItem, detallesDeProductosToolStripMenuItem, mayorCapacidadDeGalponesToolStripMenuItem, devolucionDeProductosToolStripMenuItem, facturasDeClientesToolStripMenuItem, detalleDeFacturasToolStripMenuItem });
             consultasToolStripMenuItem.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            consultasToolStripMenuItem.Size = new Size(161, 38);
+            consultasToolStripMenuItem.Size = new Size(83, 20);
             consultasToolStripMenuItem.Text = "Consultas";
             consultasToolStripMenuItem.Click += consultasToolStripMenuItem_Click;
             // 
             // RutasConductoresToolStripMenuItem
             // 
             RutasConductoresToolStripMenuItem.Name = "RutasConductoresToolStripMenuItem";
-            RutasConductoresToolStripMenuItem.Size = new Size(540, 44);
+            RutasConductoresToolStripMenuItem.Size = new Size(272, 22);
             RutasConductoresToolStripMenuItem.Text = "Rutas Conductores";
             RutasConductoresToolStripMenuItem.Click += RutasConductoresToolStripMenuItem_Click;
             // 
             // verVentasToolStripMenuItem
             // 
             verVentasToolStripMenuItem.Name = "verVentasToolStripMenuItem";
-            verVentasToolStripMenuItem.Size = new Size(540, 44);
+            verVentasToolStripMenuItem.Size = new Size(272, 22);
             verVentasToolStripMenuItem.Text = "Canales de Atencion";
             verVentasToolStripMenuItem.Click += canalesComunicacionToolStripMenuItem_Click;
             // 
             // detallesDeProductosToolStripMenuItem
             // 
             detallesDeProductosToolStripMenuItem.Name = "detallesDeProductosToolStripMenuItem";
-            detallesDeProductosToolStripMenuItem.Size = new Size(540, 44);
+            detallesDeProductosToolStripMenuItem.Size = new Size(272, 22);
             detallesDeProductosToolStripMenuItem.Text = "Detalles de Productos";
             detallesDeProductosToolStripMenuItem.Click += detallesDeProductosToolStripMenuItem_Click;
             // 
             // mayorCapacidadDeGalponesToolStripMenuItem
             // 
             mayorCapacidadDeGalponesToolStripMenuItem.Name = "mayorCapacidadDeGalponesToolStripMenuItem";
-            mayorCapacidadDeGalponesToolStripMenuItem.Size = new Size(540, 44);
+            mayorCapacidadDeGalponesToolStripMenuItem.Size = new Size(272, 22);
             mayorCapacidadDeGalponesToolStripMenuItem.Text = "Mayor Capacidad de Galpones";
             mayorCapacidadDeGalponesToolStripMenuItem.Click += mayorCapacidadDeGalponesToolStripMenuItem_Click;
             // 
             // devolucionDeProductosToolStripMenuItem
             // 
             devolucionDeProductosToolStripMenuItem.Name = "devolucionDeProductosToolStripMenuItem";
-            devolucionDeProductosToolStripMenuItem.Size = new Size(540, 44);
+            devolucionDeProductosToolStripMenuItem.Size = new Size(272, 22);
             devolucionDeProductosToolStripMenuItem.Text = "Devolucion de Productos";
             devolucionDeProductosToolStripMenuItem.Click += devolucionDeProductosToolStripMenuItem_Click;
             // 
             // facturasDeClientesToolStripMenuItem
             // 
             facturasDeClientesToolStripMenuItem.Name = "facturasDeClientesToolStripMenuItem";
-            facturasDeClientesToolStripMenuItem.Size = new Size(540, 44);
+            facturasDeClientesToolStripMenuItem.Size = new Size(272, 22);
             facturasDeClientesToolStripMenuItem.Text = "Facturas de Clientes";
             facturasDeClientesToolStripMenuItem.Click += facturasDeClientesToolStripMenuItem_Click;
             // 
             // detalleDeFacturasToolStripMenuItem
             // 
             detalleDeFacturasToolStripMenuItem.Name = "detalleDeFacturasToolStripMenuItem";
-            detalleDeFacturasToolStripMenuItem.Size = new Size(540, 44);
+            detalleDeFacturasToolStripMenuItem.Size = new Size(272, 22);
             detalleDeFacturasToolStripMenuItem.Text = "Detalle de Facturas";
             detalleDeFacturasToolStripMenuItem.Click += detalleDeFacturasToolStripMenuItem_Click;
             // 
@@ -174,27 +174,27 @@
             acercaDeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { informacionToolStripMenuItem, datosDeContactoToolStripMenuItem, versionToolStripMenuItem });
             acercaDeToolStripMenuItem.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            acercaDeToolStripMenuItem.Size = new Size(162, 38);
+            acercaDeToolStripMenuItem.Size = new Size(86, 20);
             acercaDeToolStripMenuItem.Text = "Acerca de";
             // 
             // informacionToolStripMenuItem
             // 
             informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
-            informacionToolStripMenuItem.Size = new Size(388, 44);
+            informacionToolStripMenuItem.Size = new Size(199, 22);
             informacionToolStripMenuItem.Text = "Informacion";
             informacionToolStripMenuItem.Click += informacionToolStripMenuItem_Click;
             // 
             // datosDeContactoToolStripMenuItem
             // 
             datosDeContactoToolStripMenuItem.Name = "datosDeContactoToolStripMenuItem";
-            datosDeContactoToolStripMenuItem.Size = new Size(388, 44);
+            datosDeContactoToolStripMenuItem.Size = new Size(199, 22);
             datosDeContactoToolStripMenuItem.Text = "Datos de Contacto";
             datosDeContactoToolStripMenuItem.Click += datosDeContactoToolStripMenuItem_Click;
             // 
             // versionToolStripMenuItem
             // 
             versionToolStripMenuItem.Name = "versionToolStripMenuItem";
-            versionToolStripMenuItem.Size = new Size(388, 44);
+            versionToolStripMenuItem.Size = new Size(199, 22);
             versionToolStripMenuItem.Text = "Version";
             versionToolStripMenuItem.Click += versionToolStripMenuItem_Click;
             // 
@@ -205,7 +205,7 @@
             labelProducto.Location = new Point(13, 38);
             labelProducto.Margin = new Padding(4, 0, 4, 0);
             labelProducto.Name = "labelProducto";
-            labelProducto.Size = new Size(260, 51);
+            labelProducto.Size = new Size(129, 25);
             labelProducto.TabIndex = 3;
             labelProducto.Text = "Productos";
             labelProducto.Click += labelProducto_Click;
@@ -226,7 +226,7 @@
             // 
             txtCodigoProd.Location = new Point(130, 34);
             txtCodigoProd.Name = "txtCodigoProd";
-            txtCodigoProd.Size = new Size(351, 39);
+            txtCodigoProd.Size = new Size(351, 23);
             txtCodigoProd.TabIndex = 6;
             txtCodigoProd.TextChanged += textBox1_TextChanged;
             // 
@@ -244,58 +244,19 @@
             // 
             // dataGridViewProductos
             // 
+            dataGridViewProductos.AllowUserToAddRows = false;
             dataGridViewProductos.AllowUserToDeleteRows = false;
             dataGridViewProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewProductos.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nombre, Precio, Origen, Categoria });
-            dataGridViewProductos.Location = new Point(19, 68);
+            dataGridViewProductos.Location = new Point(7, 68);
             dataGridViewProductos.Margin = new Padding(4);
             dataGridViewProductos.Name = "dataGridViewProductos";
             dataGridViewProductos.ReadOnly = true;
             dataGridViewProductos.RowHeadersWidth = 82;
             dataGridViewProductos.RowTemplate.Height = 25;
-            dataGridViewProductos.Size = new Size(754, 251);
+            dataGridViewProductos.Size = new Size(907, 251);
             dataGridViewProductos.TabIndex = 2;
             dataGridViewProductos.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // Codigo
-            // 
-            Codigo.HeaderText = "codigo";
-            Codigo.MinimumWidth = 10;
-            Codigo.Name = "Codigo";
-            Codigo.ReadOnly = true;
-            Codigo.Width = 200;
-            // 
-            // Nombre
-            // 
-            Nombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Nombre.HeaderText = "nombre";
-            Nombre.MinimumWidth = 10;
-            Nombre.Name = "Nombre";
-            Nombre.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "precio";
-            Precio.MinimumWidth = 10;
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            Precio.Width = 200;
-            // 
-            // Origen
-            // 
-            Origen.HeaderText = "origen";
-            Origen.MinimumWidth = 10;
-            Origen.Name = "Origen";
-            Origen.ReadOnly = true;
-            Origen.Width = 200;
-            // 
-            // Categoria
-            // 
-            Categoria.HeaderText = "categoria";
-            Categoria.MinimumWidth = 10;
-            Categoria.Name = "Categoria";
-            Categoria.ReadOnly = true;
-            Categoria.Width = 200;
             // 
             // grpFiltro
             // 
@@ -305,7 +266,7 @@
             grpFiltro.Controls.Add(dataGridViewProductos);
             grpFiltro.Location = new Point(13, 66);
             grpFiltro.Name = "grpFiltro";
-            grpFiltro.Size = new Size(785, 333);
+            grpFiltro.Size = new Size(921, 333);
             grpFiltro.TabIndex = 9;
             grpFiltro.TabStop = false;
             grpFiltro.Text = "Filtros";
@@ -317,15 +278,55 @@
             labelbuscar.Location = new Point(7, 37);
             labelbuscar.Margin = new Padding(4, 0, 4, 0);
             labelbuscar.Name = "labelbuscar";
-            labelbuscar.Size = new Size(230, 32);
+            labelbuscar.Size = new Size(116, 16);
             labelbuscar.TabIndex = 9;
             labelbuscar.Text = "Codigo/Producto";
             // 
+            // Codigo
+            // 
+            Codigo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Codigo.HeaderText = "codigo";
+            Codigo.MinimumWidth = 10;
+            Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            Nombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Nombre.HeaderText = "nombre";
+            Nombre.MinimumWidth = 10;
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Precio.HeaderText = "precio";
+            Precio.MinimumWidth = 10;
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            // 
+            // Origen
+            // 
+            Origen.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Origen.HeaderText = "origen";
+            Origen.MinimumWidth = 10;
+            Origen.Name = "Origen";
+            Origen.ReadOnly = true;
+            // 
+            // Categoria
+            // 
+            Categoria.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Categoria.HeaderText = "categoria";
+            Categoria.MinimumWidth = 10;
+            Categoria.Name = "Categoria";
+            Categoria.ReadOnly = true;
+            // 
             // ProductForm
             // 
-            AutoScaleDimensions = new SizeF(16F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1568, 652);
+            ClientSize = new Size(946, 467);
             Controls.Add(grpFiltro);
             Controls.Add(btnNuevo);
             Controls.Add(labelProducto);
@@ -365,11 +366,6 @@
         private DataGridView dataGridViewProductos;
         private GroupBox grpFiltro;
         private Label labelbuscar;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn Origen;
-        private DataGridViewTextBoxColumn Categoria;
         private TextBox txtCodigoProd;
         private ToolStripMenuItem verVentasToolStripMenuItem;
         private ToolStripMenuItem detallesDeProductosToolStripMenuItem;
@@ -377,5 +373,10 @@
         private ToolStripMenuItem devolucionDeProductosToolStripMenuItem;
         private ToolStripMenuItem facturasDeClientesToolStripMenuItem;
         private ToolStripMenuItem detalleDeFacturasToolStripMenuItem;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn Origen;
+        private DataGridViewTextBoxColumn Categoria;
     }
 }
